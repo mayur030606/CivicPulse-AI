@@ -1,0 +1,8 @@
+# Optional, heavy AI dependencies for YOLO image analysis.
+# Install only when you need /api/v1/ai/analyze-image:
+#     pip install -r requirements-ai.txt
+#
+# This pulls PyTorch (~hundreds of MB), so it is kept out of the core install.
+-r requirements.txt
+
+ultralytics>=8.3,<9

@@ -1,0 +1,247 @@
+{
+  "generatedAt": "2026-11-08T01:42:05.136Z",
+  "environment": {
+    "frontend": "http://localhost:5173",
+    "backend": "http://127.0.0.1:8080/api/v1",
+    "browser": "Google Chrome (Playwright-core)",
+    "syntheticPositionsUsed": true,
+    "realGpsAvailable": false
+  },
+  "results": [
+    {
+      "name": "1. Granted permission: coordinates auto-populate",
+      "status": "PASS",
+      "details": {
+        "permission": "granted (Playwright)",
+        "position": "SYNTHETIC 0.000123, 0.000456 accuracy 15.4 m (not real GPS)",
+        "latitudeField": "0.000123",
+        "longitudeField": "0.000456",
+        "statusText": "Current location captured. You can edit or clear these coordinates before submitting.\n\nAccuracy: about 15 m",
+        "accuracyText": "Accuracy: about 15 m",
+        "screenshot": "D:/CivicPulse-AI/docs/phase3a-3-evidence/01-granted-auto-capture-simulated.png"
+      }
+    },
+    {
+      "name": "6. Manually edited coordinates are not overwritten",
+      "status": "PASS",
+      "details": {
+        "latitudeField": "19.076000",
+        "longitudeField": "72.877700",
+        "capturedMessageCountAfterEdit": 0,
+        "note": "Editing after capture; no further automatic overwrite occurred."
+      }
+    },
+    {
+      "name": "6b. Manual button does not overwrite manually edited coordinates",
+      "status": "PASS",
+      "details": {
+        "latitudeField": "19.076000",
+        "longitudeField": "72.877700",
+        "messageShown": true,
+        "screenshot": "D:/CivicPulse-AI/docs/phase3a-3-evidence/02-manual-coordinate-guard.png"
+      }
+    },
+    {
+      "name": "7. Clear location empties coordinates and does not re-capture",
+      "status": "PASS",
+      "details": {
+        "latitudeField": "",
+        "longitudeField": "",
+        "clearButtonVisible": false,
+        "waitedAfterClearMs": 1500,
+        "screenshot": "D:/CivicPulse-AI/docs/phase3a-3-evidence/03-location-cleared.png"
+      }
+    },
+    {
+      "name": "13a. Diagnostics (granted/simulated flows)",
+      "status": "INFO",
+      "details": {
+        "consoleErrors": [],
+        "pageErrors": [],
+        "httpErrors": [],
+        "requestFailures": []
+      }
+    },
+    {
+      "name": "8. Manual Use my current location button",
+      "status": "PASS",
+      "details": {
+        "permissionBeforeButton": "prompt",
+        "autoCaptureStatusCountBeforeGrant": 0,
+        "position": "SYNTHETIC 3.333333, 4.444444 accuracy 42.4 m (not real GPS)",
+        "latitudeField": "3.333333",
+        "longitudeField": "4.444444",
+        "accuracyText": "Accuracy: about 42 m",
+        "screenshot": "D:/CivicPulse-AI/docs/phase3a-3-evidence/04-manual-button-capture-simulated.png",
+        "diagnostics": {
+          "consoleErrors": [],
+          "pageErrors": [],
+          "httpErrors": [],
+          "requestFailures": []
+        }
+      }
+    },
+    {
+      "name": "6c. Slow auto-capture does not overwrite coordinates typed before it resolves",
+      "status": "PASS",
+      "details": {
+        "position": "SYNTHETIC 1.111111, 2.222222 delayed 3 s (not real GPS)",
+        "latitudeField": "22.222222",
+        "longitudeField": "33.333333",
+        "capturedMessageCount": 0,
+        "accuracyLineCount": 0,
+        "screenshot": "D:/CivicPulse-AI/docs/phase3a-3-evidence/05-slow-capture-does-not-overwrite.png",
+        "diagnostics": {
+          "consoleErrors": [],
+          "pageErrors": [],
+          "httpErrors": [],
+          "requestFailures": []
+        }
+      }
+    },
+    {
+      "name": "9. Denied permission shows a non-blocking message",
+      "status": "PASS",
+      "details": {
+        "permissionState": "denied",
+        "statusText": "Location permission was denied. Enter latitude and longitude manually, or allow location access in your browser settings.",
+        "latitudeField": "",
+        "longitudeField": "",
+        "screenshot": "D:/CivicPulse-AI/docs/phase3a-3-evidence/06-permission-denied.png"
+      }
+    },
+    {
+      "name": "10. Report submits without coordinates",
+      "status": "PASS",
+      "details": {
+        "postStatus": 201,
+        "trackingId": "CP-20261108-AB676D",
+        "incidentId": 6,
+        "backendIncident": {
+          "latitude": null,
+          "longitude": null,
+          "status": "Submitted",
+          "category": "pothole"
+        },
+        "backendTracking": {
+          "latitude": null,
+          "longitude": null,
+          "tracking_id": "CP-20261108-AB676D"
+        },
+        "screenshot": "D:/CivicPulse-AI/docs/phase3a-3-evidence/07-submitted-without-coordinates.png"
+      }
+    },
+    {
+      "name": "12a. Tracking page for no-coordinate report returns no coordinates",
+      "status": "PASS",
+      "details": {
+        "trackingApi": {
+          "tracking_id": "CP-20261108-AB676D",
+          "category": "pothole",
+          "status": "Submitted",
+          "severity": null,
+          "priority": null,
+          "latitude": null,
+          "longitude": null,
+          "created_at": "2026-11-08T07:11:18"
+        },
+        "trackingPageShowsTrackingId": true,
+        "screenshot": "D:/CivicPulse-AI/docs/phase3a-3-evidence/08-tracking-without-coordinates.png",
+        "diagnostics": {
+          "consoleErrors": [],
+          "pageErrors": [],
+          "httpErrors": [],
+          "requestFailures": []
+        }
+      }
+    },
+    {
+      "name": "13b. Diagnostics (denied flow)",
+      "status": "INFO",
+      "details": {
+        "consoleErrors": [],
+        "pageErrors": [],
+        "httpErrors": [],
+        "requestFailures": []
+      }
+    },
+    {
+      "name": "11b. Submitted coordinates persist in backend (SYNTHETIC, not real GPS)",
+      "status": "PASS",
+      "details": {
+        "positionSubmitted": "SYNTHETIC 0.100001, 0.200002 accuracy 25.2 m (not real GPS)",
+        "fieldsAtSubmit": {
+          "latitude": "0.100001",
+          "longitude": "0.200002",
+          "accuracyText": "Accuracy: about 25 m"
+        },
+        "postStatus": 201,
+        "trackingId": "CP-20261108-CE6533",
+        "incidentId": 7,
+        "backendIncidentCoordinates": {
+          "latitude": 0.100001,
+          "longitude": 0.200002
+        },
+        "backendTrackingCoordinates": {
+          "latitude": 0.100001,
+          "longitude": 0.200002
+        },
+        "apiRoundTripMatches": true,
+        "screenshot": "D:/CivicPulse-AI/docs/phase3a-3-evidence/09-submitted-with-synthetic-coordinates.png"
+      }
+    },
+    {
+      "name": "12b. Tracking page returns the same coordinates",
+      "status": "PASS",
+      "details": {
+        "trackingPageLocationLabel": "0.10000, 0.20000",
+        "trackingPageShowsTrackingId": true,
+        "expectedApiCoordinates": {
+          "latitude": 0.100001,
+          "longitude": 0.200002
+        },
+        "screenshot": "D:/CivicPulse-AI/docs/phase3a-3-evidence/10-tracking-with-synthetic-coordinates.png",
+        "diagnostics": {
+          "consoleErrors": [],
+          "pageErrors": [],
+          "httpErrors": [],
+          "requestFailures": []
+        }
+      }
+    },
+    {
+      "name": "13c. Diagnostics (coordinate persistence flow)",
+      "status": "INFO",
+      "details": {
+        "consoleErrors": [],
+        "pageErrors": [],
+        "httpErrors": [],
+        "requestFailures": []
+      }
+    },
+    {
+      "name": "3b/4b/11a. Real browser GPS attempt (no override)",
+      "status": "LIMITATION",
+      "details": {
+        "permission": "granted (Playwright)",
+        "headless": false,
+        "applicationStatusText": "Location lookup timed out. Enter latitude and longitude manually.",
+        "latitudeField": "",
+        "longitudeField": "",
+        "directGeolocationResult": {
+          "ok": false,
+          "code": 3,
+          "message": "Timeout expired"
+        },
+        "conclusion": "No OS location provider available in this environment; real GPS submission could not be performed.",
+        "screenshot": "D:/CivicPulse-AI/docs/phase3a-3-evidence/11-real-gps-unavailable.png",
+        "diagnostics": {
+          "consoleErrors": [],
+          "pageErrors": [],
+          "httpErrors": [],
+          "requestFailures": []
+        }
+      }
+    }
+  ]
+}

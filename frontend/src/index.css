@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@theme {
+  --color-civic-50: #eef7f6;
+  --color-civic-100: #d5ebe9;
+  --color-civic-200: #aed8d5;
+  --color-civic-300: #7dbebb;
+  --color-civic-400: #4f9f9d;
+  --color-civic-500: #358482;
+  --color-civic-600: #286a69;
+  --color-civic-700: #235554;
+  --color-civic-800: #204645;
+  --color-civic-900: #1d3b3a;
+  --color-civic-950: #0c2222;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-slate-50 text-slate-900 antialiased;
+}
+
+/* Leaflet needs an explicit height on its container. */
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+}

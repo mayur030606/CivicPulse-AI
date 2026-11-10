@@ -1,0 +1,64 @@
+# ---- Environment ----
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.venv/
+venv/
+env/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# ---- Node / Vite ----
+node_modules/
+dist/
+dist-ssr/
+.vite/
+*.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ---- Editors / OS ----
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# ---- Project artifacts ----
+backend/uploads/
+backend/models/
+*.pt
+*.onnx
+*.pth
+
+# ---- Defence-in-depth: databases, backups and credentials ----
+*.sql
+*.dump
+*.bak
+*.sqlite*
+*.db
+*.pem
+*.key
+*.p12
+*.pfx
+*.cer
+*.crt
+*.jks
+*.keystore
+.npmrc
+.pypirc
+.netrc
+*.log

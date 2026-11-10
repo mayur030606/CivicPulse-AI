@@ -1,0 +1,563 @@
+{
+  "navChecks": [
+    {
+      "label": "anonymous home",
+      "path": "/",
+      "status": 200
+    },
+    {
+      "label": "anonymous /dashboard",
+      "path": "/dashboard",
+      "status": 200
+    },
+    {
+      "label": "anonymous /incidents",
+      "path": "/incidents",
+      "status": 200
+    },
+    {
+      "label": "anonymous /incidents/1",
+      "path": "/incidents/1",
+      "status": 200
+    },
+    {
+      "label": "login page",
+      "path": "/login",
+      "status": 200
+    },
+    {
+      "label": "admin incidents",
+      "path": "/incidents",
+      "status": 200
+    },
+    {
+      "label": "dispatcher incidents",
+      "path": "/incidents",
+      "status": 200
+    },
+    {
+      "label": "dispatcher dashboard",
+      "path": "/dashboard",
+      "status": 200
+    },
+    {
+      "label": "viewer incidents",
+      "path": "/incidents",
+      "status": 200
+    },
+    {
+      "label": "viewer incident detail",
+      "path": "/incidents/7",
+      "status": 200
+    },
+    {
+      "label": "dispatcher dashboard before logout",
+      "path": "/dashboard",
+      "status": 200
+    },
+    {
+      "label": "protected route after logout",
+      "path": "/dashboard",
+      "status": 200
+    },
+    {
+      "label": "dispatcher incidents before reload",
+      "path": "/incidents",
+      "status": 200
+    },
+    {
+      "label": "tracking page",
+      "path": "/tracking",
+      "status": 200
+    },
+    {
+      "label": "public report page",
+      "path": "/report",
+      "status": 200
+    },
+    {
+      "label": "home desktop",
+      "path": "/",
+      "status": 200
+    },
+    {
+      "label": "login desktop",
+      "path": "/login",
+      "status": 200
+    },
+    {
+      "label": "tracking desktop",
+      "path": "/tracking",
+      "status": 200
+    },
+    {
+      "label": "home mobile",
+      "path": "/",
+      "status": 200
+    },
+    {
+      "label": "login mobile",
+      "path": "/login",
+      "status": 200
+    },
+    {
+      "label": "tracking mobile",
+      "path": "/tracking",
+      "status": 200
+    },
+    {
+      "label": "admin dashboard mobile",
+      "path": "/dashboard",
+      "status": 200
+    },
+    {
+      "label": "admin incidents mobile",
+      "path": "/incidents",
+      "status": 200
+    },
+    {
+      "label": "viewer dashboard mobile",
+      "path": "/dashboard",
+      "status": 200
+    }
+  ],
+  "apiChecks": [
+    {
+      "role": "admin",
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "status": 200,
+      "expectedStatus": 200,
+      "ok": true,
+      "note": "session restored"
+    },
+    {
+      "role": "admin",
+      "method": "GET",
+      "path": "/api/v1/admin/overview",
+      "status": 200,
+      "expectedStatus": 200,
+      "ok": true,
+      "note": "admin-only overview"
+    },
+    {
+      "role": "admin",
+      "method": "GET",
+      "path": "/api/v1/reports/summary",
+      "status": 200,
+      "expectedStatus": 200,
+      "ok": true,
+      "note": "staff report summary"
+    },
+    {
+      "role": "admin",
+      "method": "GET",
+      "path": "/api/v1/incidents",
+      "status": 200,
+      "expectedStatus": 200,
+      "ok": true,
+      "note": "staff incident list"
+    },
+    {
+      "role": "admin",
+      "method": "GET",
+      "path": "/api/v1/incidents/7",
+      "status": 200,
+      "expectedStatus": 200,
+      "ok": true,
+      "note": "staff incident detail"
+    },
+    {
+      "role": "dispatcher",
+      "method": "GET",
+      "path": "/api/v1/incidents",
+      "status": 200,
+      "expectedStatus": 200,
+      "ok": true,
+      "note": "staff incident list"
+    },
+    {
+      "role": "dispatcher",
+      "method": "GET",
+      "path": "/api/v1/admin/overview",
+      "status": 403,
+      "expectedStatus": 403,
+      "ok": true,
+      "note": "admin-only endpoint denied by backend"
+    },
+    {
+      "role": "viewer",
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "status": 200,
+      "expectedStatus": 200,
+      "ok": true,
+      "note": "viewer own account"
+    },
+    {
+      "role": "viewer",
+      "method": "GET",
+      "path": "/api/v1/incidents",
+      "status": 403,
+      "expectedStatus": 403,
+      "ok": true,
+      "note": "viewer incident list denied"
+    },
+    {
+      "role": "viewer",
+      "method": "GET",
+      "path": "/api/v1/admin/overview",
+      "status": 403,
+      "expectedStatus": 403,
+      "ok": true,
+      "note": "viewer admin overview denied"
+    },
+    {
+      "role": "viewer",
+      "method": "PATCH",
+      "path": "/api/v1/incidents/7",
+      "status": 403,
+      "expectedStatus": 403,
+      "ok": true,
+      "note": "viewer status update attempt with valid CSRF token"
+    }
+  ],
+  "observedErrorResponses": [
+    {
+      "kind": "http",
+      "label": "anonymous",
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "status": 401,
+      "classification": "expected-anonymous-probe"
+    },
+    {
+      "kind": "http",
+      "label": "anonymous",
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "status": 401,
+      "classification": "expected-anonymous-probe"
+    },
+    {
+      "kind": "http",
+      "label": "anonymous",
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "status": 401,
+      "classification": "expected-anonymous-probe"
+    },
+    {
+      "kind": "http",
+      "label": "anonymous",
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "status": 401,
+      "classification": "expected-anonymous-probe"
+    },
+    {
+      "kind": "http",
+      "label": "anonymous",
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "status": 401,
+      "classification": "expected-anonymous-probe"
+    },
+    {
+      "kind": "http",
+      "label": "anonymous",
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "status": 401,
+      "classification": "expected-anonymous-probe"
+    },
+    {
+      "kind": "http",
+      "label": "anonymous",
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "status": 401,
+      "classification": "expected-anonymous-probe"
+    },
+    {
+      "kind": "http",
+      "label": "anonymous",
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "status": 401,
+      "classification": "expected-anonymous-probe"
+    },
+    {
+      "kind": "http",
+      "label": "redirect-preservation",
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "status": 401,
+      "classification": "expected-anonymous-probe"
+    },
+    {
+      "kind": "http",
+      "label": "redirect-preservation",
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "status": 401,
+      "classification": "expected-anonymous-probe"
+    },
+    {
+      "kind": "http",
+      "label": "admin",
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "status": 401,
+      "classification": "expected-anonymous-probe"
+    },
+    {
+      "kind": "http",
+      "label": "admin",
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "status": 401,
+      "classification": "expected-anonymous-probe"
+    },
+    {
+      "kind": "http",
+      "label": "dispatcher",
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "status": 401,
+      "classification": "expected-anonymous-probe"
+    },
+    {
+      "kind": "http",
+      "label": "dispatcher",
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "status": 401,
+      "classification": "expected-anonymous-probe"
+    },
+    {
+      "kind": "http",
+      "label": "dispatcher",
+      "method": "GET",
+      "path": "/api/v1/admin/overview",
+      "status": 403,
+      "classification": "expected-admin-role-denied"
+    },
+    {
+      "kind": "http",
+      "label": "viewer",
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "status": 401,
+      "classification": "expected-anonymous-probe"
+    },
+    {
+      "kind": "http",
+      "label": "viewer",
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "status": 401,
+      "classification": "expected-anonymous-probe"
+    },
+    {
+      "kind": "http",
+      "label": "viewer",
+      "method": "GET",
+      "path": "/api/v1/incidents",
+      "status": 403,
+      "classification": "expected-viewer-list-denied"
+    },
+    {
+      "kind": "http",
+      "label": "viewer",
+      "method": "GET",
+      "path": "/api/v1/admin/overview",
+      "status": 403,
+      "classification": "expected-admin-role-denied"
+    },
+    {
+      "kind": "http",
+      "label": "viewer",
+      "method": "PATCH",
+      "path": "/api/v1/incidents/7",
+      "status": 403,
+      "classification": "expected-viewer-update-denied"
+    },
+    {
+      "kind": "http",
+      "label": "dispatcher",
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "status": 401,
+      "classification": "expected-anonymous-probe"
+    },
+    {
+      "kind": "http",
+      "label": "dispatcher",
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "status": 401,
+      "classification": "expected-anonymous-probe"
+    },
+    {
+      "kind": "http",
+      "label": "dispatcher",
+      "method": "GET",
+      "path": "/api/v1/reports/summary",
+      "status": 401,
+      "classification": "expected-expired-session"
+    },
+    {
+      "kind": "http",
+      "label": "dispatcher",
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "status": 401,
+      "classification": "expected-anonymous-probe"
+    },
+    {
+      "kind": "http",
+      "label": "dispatcher",
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "status": 401,
+      "classification": "expected-anonymous-probe"
+    },
+    {
+      "kind": "http",
+      "label": "anonymous",
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "status": 401,
+      "classification": "expected-anonymous-probe"
+    },
+    {
+      "kind": "http",
+      "label": "anonymous",
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "status": 401,
+      "classification": "expected-anonymous-probe"
+    },
+    {
+      "kind": "http",
+      "label": "anonymous",
+      "method": "GET",
+      "path": "/api/v1/tracking/not-a-real-tracking-id",
+      "status": 404,
+      "classification": "expected-unknown-tracking-id"
+    },
+    {
+      "kind": "http",
+      "label": "anonymous",
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "status": 401,
+      "classification": "expected-anonymous-probe"
+    },
+    {
+      "kind": "http",
+      "label": "anonymous",
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "status": 401,
+      "classification": "expected-anonymous-probe"
+    },
+    {
+      "kind": "http",
+      "label": "anonymous",
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "status": 401,
+      "classification": "expected-anonymous-probe"
+    },
+    {
+      "kind": "http",
+      "label": "anonymous",
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "status": 401,
+      "classification": "expected-anonymous-probe"
+    },
+    {
+      "kind": "http",
+      "label": "anonymous",
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "status": 401,
+      "classification": "expected-anonymous-probe"
+    },
+    {
+      "kind": "http",
+      "label": "anonymous",
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "status": 401,
+      "classification": "expected-anonymous-probe"
+    },
+    {
+      "kind": "http",
+      "label": "anonymous",
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "status": 401,
+      "classification": "expected-anonymous-probe"
+    },
+    {
+      "kind": "http",
+      "label": "anonymous",
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "status": 401,
+      "classification": "expected-anonymous-probe"
+    },
+    {
+      "kind": "http",
+      "label": "anonymous",
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "status": 401,
+      "classification": "expected-anonymous-probe"
+    },
+    {
+      "kind": "http",
+      "label": "anonymous",
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "status": 401,
+      "classification": "expected-anonymous-probe"
+    },
+    {
+      "kind": "http",
+      "label": "anonymous",
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "status": 401,
+      "classification": "expected-anonymous-probe"
+    },
+    {
+      "kind": "http",
+      "label": "anonymous",
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "status": 401,
+      "classification": "expected-anonymous-probe"
+    },
+    {
+      "kind": "http",
+      "label": "anonymous",
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "status": 401,
+      "classification": "expected-anonymous-probe"
+    },
+    {
+      "kind": "http",
+      "label": "anonymous",
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "status": 401,
+      "classification": "expected-anonymous-probe"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+# Optional shared rate-limit backend for multi-worker deployments.
+# Install only when RATE_LIMIT_BACKEND=redis:
+#     pip install -r requirements-redis.txt
+#
+# Redis is not required for local development or a single worker; the default
+# in-memory limiter is used when RATE_LIMIT_BACKEND=memory.
+-r requirements.txt
+
+redis>=5.0,<7
